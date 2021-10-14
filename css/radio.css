@@ -1,0 +1,85 @@
+#f1, #f1 + label,
+#f2, #f2 + label,
+#f3, #f3 + label,
+#m1, #m1 + label,
+#m2, #m2 + label,
+#m3, #m3 + label,
+#n1, #n1 + label,
+#n2, #n2 + label,
+#n3, #n3 + label {
+    display: none;
+}
+
+#female:checked ~ #pc-name + label > .pc-name > #f1,
+#female:checked ~ #pc-name + label > .pc-name > #f1 + label,
+#female:checked ~ #pc-name + label > .pc-name > #f2,
+#female:checked ~ #pc-name + label > .pc-name > #f2 + label,
+#female:checked ~ #pc-name + label > .pc-name > #f3,
+#female:checked ~ #pc-name + label > .pc-name > #f3 + label,
+
+#male:checked ~ #pc-name + label > .pc-name > #m1,
+#male:checked ~ #pc-name + label > .pc-name > #m1 + label,
+#male:checked ~ #pc-name + label > .pc-name > #m2,
+#male:checked ~ #pc-name + label > .pc-name > #m2 + label,
+#male:checked ~ #pc-name + label > .pc-name > #m3,
+#male:checked ~ #pc-name + label > .pc-name > #m3 + label,
+
+#nb:checked ~ #pc-name + label > .pc-name > #n1,
+#nb:checked ~ #pc-name + label > .pc-name > #n1 + label,
+#nb:checked ~ #pc-name + label > .pc-name > #n2,
+#nb:checked ~ #pc-name + label > .pc-name > #n2 + label,
+#nb:checked ~ #pc-name + label > .pc-name > #n3,
+#nb:checked ~ #pc-name + label > .pc-name > #n3 + label {
+    display: inline;
+}
+
+[class|="gen"] {
+    display: none;
+}
+#female:checked ~ #pc-name + label .gen-female,
+#male:checked ~ #pc-name + label .gen-male,
+#nb:checked ~ #pc-name + label .gen-nb {
+    display: initial;
+}
+
+[class|="name"] {
+    display: none;
+}
+#f1:checked ~ #poc + label .name-f1,
+#f2:checked ~ #poc + label .name-f2,
+#f3:checked ~ #poc + label .name-f3,
+
+#m1:checked ~ #poc + label .name-m1,
+#m2:checked ~ #poc + label .name-m2,
+#m3:checked ~ #poc + label .name-m3,
+
+#n1:checked ~ #poc + label .name-n1,
+#n2:checked ~ #poc + label .name-n2,
+#n3:checked ~ #poc + label .name-n3 {
+    display: initial;
+}
+.punct {
+    margin-left: -0.25em;
+}
+
+#start, #pc-name, #pc-gender, #poc {
+    display: none;
+}
+[id] + label, [id] + label > * {
+    pointer-events: none;
+}
+[id] + label > div > p > .continue {
+    pointer-events: auto;
+}
+[id] + label > div > [class|="pcqu"] ~ label {
+    pointer-events: auto;
+}
+
+[id] + label > div > [id] + label > div,
+[id]:checked + label > div > * {
+    display: none !important;
+}
+[id]:checked + label > div > [id] + label > div,
+[id]:checked + label > div > label:last-of-type {
+    display: initial !important;
+}

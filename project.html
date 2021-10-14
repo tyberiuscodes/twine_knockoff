@@ -7,6 +7,7 @@
         <!-- fonts -->
         <!-- stylesheets -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/radio.css">
     </head>
     <body>
         <div class="wrapper">
@@ -22,7 +23,6 @@
             <main>
                 <section>
                     <h2>Welcome</h2>
-                    <p>beep</p>
                 </section>
 
                 <!-- 
@@ -40,7 +40,98 @@
                         -- general sibling selector (~) for same parent and following (not before)
                 -->
                 <section id="project">
-                    
+                    <input type="checkbox" id="start">
+                    <label class="btn" for="start">
+                        <div class="pc-gender">
+                            <p class="pcqu-gender">What is your gender?</p>
+                            <!-- picking pc gender -->
+                            <input type="radio" id="female" name="pc-gender">
+                            <label for="female"> Female</label>
+
+                            <input type="radio" id="male" name="pc-gender">
+                            <label for="male"> Male</label>
+
+                            <input type="radio" id="nb" name="pc-gender">
+                            <label for="nb"> Nonbinary</label>
+
+                            <p><i class="continue">Click to continue</i></p>
+
+                            <input type="checkbox" id="pc-name">
+                            <label class="btn" for="pc-name">
+                                <div class="pc-name">
+                                    <p class="pcqu-name">What is your name?</p>
+                                    <!-- female names -->
+                                    <input type="radio" id="f1" name="pc-fname">
+                                    <label for="f1"> Anna</label>
+
+                                    <input type="radio" id="f2" name="pc-fname">
+                                    <label for="f2"> Venus</label>
+
+                                    <input type="radio" id="f3" name="pc-fname">
+                                    <label for="f3"> Lily</label>
+
+                                    <!-- male names -->
+                                    <input type="radio" id="m1" name="pc-mname">
+                                    <label for="m1"> James</label>
+
+                                    <input type="radio" id="m2" name="pc-mname">
+                                    <label for="m2"> David</label>
+
+                                    <input type="radio" id="m3" name="pc-mname">
+                                    <label for="m3"> Richard</label>
+
+                                    <!-- nonbinary names -->
+                                    <input type="radio" id="n1" name="pc-nname">
+                                    <label for="n1"> Quinn</label>
+
+                                    <input type="radio" id="n2" name="pc-nname">
+                                    <label for="n2"> Revel</label>
+
+                                    <input type="radio" id="n3" name="pc-nname">
+                                    <label for="n3"> Aspen</label>
+
+                                    <p><i class="continue">Click to continue</i></p>
+                                    
+                                    <input type="checkbox" id="poc">
+                                    <label class="btn" for="poc">
+                                        <div class="poc">
+                                            <p>Okay, so you're a 
+                                                <span class="gen-female">girl</span>
+                                                <span class="gen-male">guy</span>
+                                                <span class="gen-nb">person</span>
+                                            named 
+                                                <!-- girl names -->
+                                                <span class="name-f1">Anna</span>
+                                                <span class="name-f2">Venus</span>
+                                                <span class="name-f3">Lily</span>
+                                                <!-- guy names -->
+                                                <span class="name-m1">James</span>
+                                                <span class="name-m2">David</span>
+                                                <span class="name-m3">Richard</span>
+                                                <!-- nonbinary names -->
+                                                <span class="name-n1">Quinn</span>
+                                                <span class="name-n2">Revel</span>
+                                                <span class="name-n3">Aspen</span>
+                                                <span class="punct">?</span> That's pretty cool. I've always thought 
+                                                <!-- girl names -->
+                                                <span class="name-f1">Anna</span>
+                                                <span class="name-f2">Venus</span>
+                                                <span class="name-f3">Lily</span>
+                                                <!-- guy names -->
+                                                <span class="name-m1">James</span>
+                                                <span class="name-m2">David</span>
+                                                <span class="name-m3">Richard</span>
+                                                <!-- nonbinary names -->
+                                                <span class="name-n1">Quinn</span>
+                                                <span class="name-n2">Revel</span>
+                                                <span class="name-n3">Aspen</span>
+                                            was a really solid name, honestly.</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </label>
+                       </div>
+                    </label>
                 </section>
             </main>
             <footer>
