@@ -79,3 +79,11 @@
 [id]:checked + label > div > label:last-of-type {
     display: initial !important;
 }
+
+/* -- Hide continue until option selected -- */
+[type="radio"] ~ p > .continue {
+    display: none;
+}
+[type="radio"]:checked ~ p > .continue {
+    display: initial;
+}
