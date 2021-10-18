@@ -1,84 +1,80 @@
-#f1, #f1 + label,
-#f2, #f2 + label,
-#f3, #f3 + label,
-#m1, #m1 + label,
-#m2, #m2 + label,
-#m3, #m3 + label,
-#n1, #n1 + label,
-#n2, #n2 + label,
-#n3, #n3 + label {
+/* -- Hide all name choices, initially -- */
+[id|="f"], [id|="f"] + label,
+[id|="m"], [id|="m"] + label,
+[id|="n"], [id|="n"] + label {
     display: none;
 }
 
-#female:checked ~ #pc-name + label > .pc-name > #f1,
-#female:checked ~ #pc-name + label > .pc-name > #f1 + label,
-#female:checked ~ #pc-name + label > .pc-name > #f2,
-#female:checked ~ #pc-name + label > .pc-name > #f2 + label,
-#female:checked ~ #pc-name + label > .pc-name > #f3,
-#female:checked ~ #pc-name + label > .pc-name > #f3 + label,
+/* -- Displays name choices depending on chosen gender -- */
+#female:checked ~ #pc-name + label > .pc-name > [id|="f"],
+#female:checked ~ #pc-name + label > .pc-name > [id|="f"] + label,
 
-#male:checked ~ #pc-name + label > .pc-name > #m1,
-#male:checked ~ #pc-name + label > .pc-name > #m1 + label,
-#male:checked ~ #pc-name + label > .pc-name > #m2,
-#male:checked ~ #pc-name + label > .pc-name > #m2 + label,
-#male:checked ~ #pc-name + label > .pc-name > #m3,
-#male:checked ~ #pc-name + label > .pc-name > #m3 + label,
+#male:checked ~ #pc-name + label > .pc-name > [id|="m"],
+#male:checked ~ #pc-name + label > .pc-name > [id|="m"] + label,
 
-#nb:checked ~ #pc-name + label > .pc-name > #n1,
-#nb:checked ~ #pc-name + label > .pc-name > #n1 + label,
-#nb:checked ~ #pc-name + label > .pc-name > #n2,
-#nb:checked ~ #pc-name + label > .pc-name > #n2 + label,
-#nb:checked ~ #pc-name + label > .pc-name > #n3,
-#nb:checked ~ #pc-name + label > .pc-name > #n3 + label {
+#nb:checked ~ #pc-name + label > .pc-name > [id|="n"],
+#nb:checked ~ #pc-name + label > .pc-name > [id|="n"] + label {
     display: inline;
 }
 
+/* -- Hide all mentions of gender in text, initially -- */
 [class|="gen"] {
     display: none;
 }
+/* -- Display mentions of gender in text based on chosen gender -- */
 #female:checked ~ #pc-name + label .gen-female,
 #male:checked ~ #pc-name + label .gen-male,
 #nb:checked ~ #pc-name + label .gen-nb {
     display: initial;
 }
 
+/* -- Hide all names in text, initially -- */
 [class|="name"] {
     display: none;
 }
-#f1:checked ~ #poc + label .name-f1,
-#f2:checked ~ #poc + label .name-f2,
-#f3:checked ~ #poc + label .name-f3,
+/* -- Display name in text based on chosen name -- */
+#f-1:checked ~ #poc + label .name-f1,
+#f-2:checked ~ #poc + label .name-f2,
+#f-3:checked ~ #poc + label .name-f3,
 
-#m1:checked ~ #poc + label .name-m1,
-#m2:checked ~ #poc + label .name-m2,
-#m3:checked ~ #poc + label .name-m3,
+#m-1:checked ~ #poc + label .name-m1,
+#m-2:checked ~ #poc + label .name-m2,
+#m-3:checked ~ #poc + label .name-m3,
 
-#n1:checked ~ #poc + label .name-n1,
-#n2:checked ~ #poc + label .name-n2,
-#n3:checked ~ #poc + label .name-n3 {
+#n-1:checked ~ #poc + label .name-n1,
+#n-2:checked ~ #poc + label .name-n2,
+#n-3:checked ~ #poc + label .name-n3 {
     display: initial;
 }
+/* -- Fix for weird punctuation spacing in text after options list -- */
 .punct {
     margin-left: -0.25em;
 }
 
+/* -- Don't display checkbox buttons -- */
 #start, #pc-name, #pc-gender, #poc {
     display: none;
 }
-[id] + label, [id] + label > * {
+
+/* -- Disable pointer events, except for radio input, labels & continue text -- */
+[id] + label > div > [class|="pcqu"] ~ label,
+[id] + label > div > [class|="pcqu"] ~ [type="radio"] {
+    pointer-events: auto;
+}
+[id] + label, [id] + label > *,
+[id] + label > div > [class|="pcqu"] ~ label:last-of-type {
     pointer-events: none;
 }
 [id] + label > div > p > .continue {
     pointer-events: auto;
 }
-[id] + label > div > [class|="pcqu"] ~ label {
-    pointer-events: auto;
-}
 
+/* -- Hide nested & checked checkboxes -- */
 [id] + label > div > [id] + label > div,
 [id]:checked + label > div > * {
     display: none !important;
 }
+/* -- Display nested checkbox after parent is checked -- */
 [id]:checked + label > div > [id] + label > div,
 [id]:checked + label > div > label:last-of-type {
     display: initial !important;
