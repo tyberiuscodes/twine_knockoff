@@ -32,6 +32,7 @@ nav ul {
 }
 nav li {
     display: inline;
+    min-width: 6rem;
     width: 15%;
     margin: 0 0 0 4rem;
 }
@@ -50,4 +51,43 @@ main {
 footer {
     grid-area: footer;
     text-align: center;
+    padding: 0.5rem 1rem;
+}
+
+@media (max-width: 775px) {
+    .wrapper {
+        display: grid;
+        grid-template: 
+        "header nav"
+        "main main"
+        "footer footer"
+        / 12rem;
+    }
+}
+@media (max-width: 615px) {
+    .wrapper {
+        display: grid;
+        grid-template: 
+        "header"
+        "nav"
+        "main"
+        "footer";
+    }
+    nav ul {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: space-between;
+    }
+    nav li {
+        display: initial;
+        margin: 0 0 0.5rem 0;
+        width: 99%;
+    }
+}
+@media (max-width: 450px) {
+    body {
+        margin: 8px;
+    }
 }
