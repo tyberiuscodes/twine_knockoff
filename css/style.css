@@ -1,8 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --light: #ece8e7;
+    --middle: #8b7f7b;
+    --blue: #5A5F6A;
+    --green: #444b46;
+}
+
 * {
     box-sizing: border-box;
 }
 body {
-    margin: 2rem;
+    margin: 2rem 4rem;
+
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 0.9rem;
+    background: #ddd8d7;
+    color: var(--green);
+}
+a {
+    color: #c3b7b3;
+    text-decoration: none;
 }
 .wrapper {
     display: grid;
@@ -10,21 +28,24 @@ body {
     "header nav"
     "main main"
     "footer footer"
-    / 20%;
+    / 25%;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
 }
 header, nav, main, footer {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 header {
     grid-area: header;
 }
 nav {
     grid-area: nav;
+    border-radius: 0.15rem;
 }
 nav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0 2rem;
+    padding: 1rem 0;
     height: 100%;
     display: flex;
     justify-content: end;
@@ -32,21 +53,44 @@ nav ul {
 }
 nav li {
     display: inline;
-    min-width: 6rem;
-    width: 15%;
+    min-width: 14rem;
+    width: 35%;
     margin: 0 0 0 4rem;
+}
+nav li:first-of-type {
+    margin: 0;
 }
 nav li a {
     display: inline-block;
-    border: 1px red solid;
+    /*border: 1px red solid;*/
     width: 100%;
     padding: 1rem;
     text-align: center;
-    border-radius: 0.5rem;
+    border-radius: 0.15rem;
+
+    color: var(--light);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    font-variant: small-caps;
+    background: var(--blue);
+    border: 1px solid var(--middle);
+    box-shadow: 0px 0px 2rem -0.63rem var(--middle);
 }
 main {
     grid-area: main;
-    padding: 0 2rem 2rem 2rem;
+    padding: 2rem;
+
+    border-radius: 0.15rem;
+    background: var(--green);
+    color: var(--light);
+    border: 1px solid var(--middle);
+    box-shadow: 0px 0px 2rem -0.63rem var(--middle);
+}
+main p {
+    line-height: 1.7rem;
+}
+main section:nth-of-type(1) h2:nth-of-type(1) {
+    margin-top: 0;
 }
 footer {
     grid-area: footer;
@@ -55,6 +99,9 @@ footer {
 }
 
 @media (max-width: 775px) {
+    body {
+        margin: 2rem;
+    }
     .wrapper {
         display: grid;
         grid-template: 
@@ -63,8 +110,15 @@ footer {
         "footer footer"
         / 12rem;
     }
+    nav li {
+        min-width: initial;
+        width: 100%;
+    }
 }
 @media (max-width: 615px) {
+    header h1 {
+        text-align: center;
+    }
     .wrapper {
         display: grid;
         grid-template: 
@@ -80,7 +134,7 @@ footer {
         justify-content: center;
         align-items: space-between;
     }
-    nav li {
+    nav li, nav li:first-of-type {
         display: initial;
         margin: 0 0 0.5rem 0;
         width: 99%;
