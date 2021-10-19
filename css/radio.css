@@ -65,7 +65,7 @@
 [id] + label > div > [class|="pcqu"] ~ label:last-of-type {
     pointer-events: none;
 }
-[id] + label > div > p > .continue {
+[id] + label > div > .continue {
     pointer-events: auto;
 }
 
@@ -80,10 +80,17 @@
     display: initial !important;
 }
 
-/* -- Hide continue until option selected -- */
-[type="radio"] ~ p > .continue {
+/* -- Hide continue until option selected, 
+    but only when there's options to be selected -- */
+[type="radio"] ~ .continue {
     display: none;
 }
-[type="radio"]:checked ~ p > .continue {
-    display: initial;
+[type="radio"]:checked ~ .continue {
+    display: inline-block;
+}
+
+/* -- line breaks after radio labels -- */
+[type="radio"] + label::after {
+    content:"\A";
+    white-space: pre;
 }
