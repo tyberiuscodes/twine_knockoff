@@ -62,7 +62,6 @@ nav li:first-of-type {
 }
 nav li a {
     display: inline-block;
-    /*border: 1px red solid;*/
     width: 100%;
     padding: 1rem;
     text-align: center;
