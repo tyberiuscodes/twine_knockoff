@@ -45,7 +45,7 @@
                 -->
                 <section id="project">
                     <input type="checkbox" id="start">
-                    <label class="btn" for="start">
+                    <label class="section" for="start">
                         <div class="pc-gender">
                             <p class="pcqu-gender">What is your gender?</p>
                             <!-- picking pc gender -->
@@ -61,7 +61,7 @@
                             <p class="continue"><i>Click to continue</i></p>
 
                             <input type="checkbox" id="pc-name">
-                            <label class="btn" for="pc-name">
+                            <label class="section" for="pc-name">
                                 <div class="pc-name">
                                     <p class="pcqu-name">What is your name?</p>
                                     <!-- female names -->
@@ -97,7 +97,7 @@
                                     <p class="continue"><i>Click to continue</i></p>
                                     
                                     <input type="checkbox" id="poc">
-                                    <label class="btn" for="poc">
+                                    <label class="section" for="poc">
                                         <div class="poc">
                                             <p>Okay, so you're a 
                                                 <span class="gen-female">girl</span>
@@ -131,19 +131,45 @@
                                                 <span class="name-n3">Aspen</span>
                                             was a really solid name, honestly.</p>
 
-                                            <!-- does branching choices actually work with nesting? can you "check" two boxes simultaneously? -->
+                                            <!-- does branching choices actually work with nesting? can you "check" two boxes simultaneously? 
+                                                -- NOPE, doesn't seem like it -->
                                             <p class="continue"><i><a href="project.html">Restart</a></i></p>
-                                            <br>
-                                            <div>
-                                                <input type="radio" id="left" name="fork">
-                                                <label for="left" class="continue-multi">
-                                                    <i>Go left?</i>
+
+                                            <p>Well, it looks like there's a fork in the road.</p>
+
+                                            <!-- The divs in these nested boxes never show bc the parent checkbox (#poc) never get checked, as you can't check the parent and the continue-multi boxes simultaneously -->
+                                            <!-- An idea
+                                                    -- could possibly use the "previous sibling" hack (flipping the content element positions in HTML and then flipping them to proper order in CSS, which allows use of the general and immediate sibling selectors) in order to hide the content of the parent box (#poc) without ever actually checking the box
+                                                    -- the issue would be that the continue-multi boxes are going to be extremely long, as they're where the story diverges
+                                                    -- this would mean the actual text content of #poc would be waaaayyy at the bottom of the container, and would also be the case for any other diverging choice
+                                                    -- this would make maintenance even more difficult and annoying, bc the text of each box would be flipped
+                                                    -- also, content would need to be wrapped so that the wrapper container is what gets resorted and not the actual text/paragraphs
+                                            -->
+                                            <input type="checkbox" id="left">
+                                            <label class="continue-multi" for="left">
+                                                <p>Do you go left?</p>
+
+                                                <input type="checkbox" id="path-left">
+                                                <label class="choice" for="path-left">
+                                                    <div>
+                                                        <p>You go left. This is all the text you see when you go left.</p>
+                                                    </div>
                                                 </label>
-                                                <input type="radio" id="right" name="fork">
-                                                <label for="right" class="continue-multi">
-                                                    <i>Or go right?</i>
-                                                </label>
-                                            </div>
+                                            </label>
+                                            
+                                            <input type="checkbox" id="right">
+                                            <label class="continue-multi" for="right">
+                                                <div>
+                                                    <p>Or right?</p>
+
+                                                    <input type="checkbox" id="path-right">
+                                                    <label class="choice" for="path-right">
+                                                        <div>
+                                                            <p>You go right. This is all the text you see when you go right.</p>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </label>
                                         </div>
                                     </label>
                                 </div>

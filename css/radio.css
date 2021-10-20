@@ -52,7 +52,8 @@
 }
 
 /* -- Don't display checkbox buttons -- */
-#start, #pc-name, #pc-gender {
+#start, #pc-name, #pc-gender, #poc,
+[type="checkbox"] {
     display: none;
 }
 
@@ -66,18 +67,18 @@
     pointer-events: none;
 }
 [id] + label > div > .continue,
-[id] + label > div > div {
+[id] + label > div > .continue-multi {
     pointer-events: auto;
 }
 
 /* -- Hide nested & checked checkboxes -- */
 [id] + label > div > [id] + label > div,
 [id]:checked + label > div > * {
-    /*display: none !important;*/
+    display: none !important;
 }
 /* -- Display nested checkbox after parent is checked -- */
 [id]:checked + label > div > [id] + label > div,
-[id]:checked + label > div > label:last-of-type {
+[id]:checked + label > div > label.section:last-of-type {
     display: initial !important;
 }
 
@@ -101,4 +102,16 @@
 [type="radio"] + label::after {
     content:"\A";
     white-space: pre;
+}
+
+
+[type="checkbox"] + .continue-multi > label.choice {
+    display: none !important;
+}
+[type="checkbox"]:checked + .continue-multi {
+    display: none;
+}
+[type="checkbox"]:checked + .continue-multi > label.choice,
+[type="checkbox"]:checked + .continue-multi > label.choice p {
+    display: initial !important;
 }
