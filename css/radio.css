@@ -52,7 +52,7 @@
 }
 
 /* -- Don't display checkbox buttons -- */
-#start, #pc-name, #pc-gender, #poc {
+#start, #pc-name, #pc-gender {
     display: none;
 }
 
@@ -65,14 +65,15 @@
 [id] + label > div > [class|="pcqu"] ~ label:last-of-type {
     pointer-events: none;
 }
-[id] + label > div > .continue {
+[id] + label > div > .continue,
+[id] + label > div > div {
     pointer-events: auto;
 }
 
 /* -- Hide nested & checked checkboxes -- */
 [id] + label > div > [id] + label > div,
 [id]:checked + label > div > * {
-    display: none !important;
+    /*display: none !important;*/
 }
 /* -- Display nested checkbox after parent is checked -- */
 [id]:checked + label > div > [id] + label > div,
@@ -82,11 +83,18 @@
 
 /* -- Hide continue until option selected, 
     but only when there's options to be selected -- */
+.continue-multi {
+    display: inline-block;
+}
 [type="radio"] ~ .continue {
     display: none;
 }
 [type="radio"]:checked ~ .continue {
     display: inline-block;
+}
+
+[type="radio"] + .continue-multi {
+    display: inline;
 }
 
 /* -- line breaks after radio labels -- */
