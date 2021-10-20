@@ -1,0 +1,6 @@
+[type="checkbox"]:indeterminate + label {
+    border: 1px solid red;
+}
+#child + label {
+    color: purple;
+}

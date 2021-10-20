@@ -7,6 +7,7 @@
         <!-- fonts -->
         <!-- stylesheets -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/nested-checkboxes.css">
     </head>
     <body>
         <div class="wrapper">
@@ -40,7 +41,17 @@
                         -- general sibling selector (~) for same parent and following (not before)
                 -->
                 <section id="project">
-                    
+                    <input type="checkbox" id="parent">
+                    <label for="parent">
+                        <p>Test</p>
+
+                        <input type="checkbox" id="child">
+                        <label for="child">
+                            <p>Goal, to check both with one click</p>
+                        </label>
+                        
+                        <p>test??</p>
+                    </label>
                 </section>
             </main>
             <footer>
