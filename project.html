@@ -32,12 +32,16 @@
                 Things to consider:
                     -- is the checkbox hack necessary for this project?
                         -- if so, would it be best for parts only or the whole project?
+                    -- Can you hide a radio group once an option has been chosen?
+                        -- POSSIBLY using a parent container, but then the status of which option is checked wouldn't be available...
                     -- simple in-page linking can still have a great effect (think Mirror & Signal)
                     -- checkbox vs radio buttons
+                    -- can apparently combine pseudo-classes & attribute selectors
                     -- referenced variables (radios or checkboxes) would only work when nested
                         -- child combinator (>) for direct children
                         -- adjacent sibling selector (+) for same parent and immediately following
                         -- general sibling selector (~) for same parent and following (not before)
+                        -- :not() css selector?????
                 -->
                 <section id="project">
                     <input type="checkbox" id="start">
