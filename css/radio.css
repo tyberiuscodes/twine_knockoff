@@ -1,24 +1,106 @@
+/* =====================
+        STYLING 
+===================== */
+
+/* -- Don't display checkbox buttons -- */
+#start, #pc-name, #pc-gender, #poc,
+[type="checkbox"],
+[type="radio"].text-choice {
+    display: none;
+}
+
+/* -- line breaks after radio labels -- */
+[type="radio"][name*="pc-"] + label::after {
+    content:"\A";
+    white-space: pre;
+}
+
+/* -- in-text, branching choice styling -- */
+.branch-choice {
+    display: inline;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.branch-choice:hover {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+.continue:hover, .continue-multi:hover {
+    cursor: pointer;
+}
+
+/* -- Fix for punctuation spacing in text after options list -- */
+.punct {
+    margin-left: -0.25em;
+}
+
+
+/* =====================
+        CHECKBOX
+        STYLING
+===================== */
+
+/* -- Disable pointer events, except for radio input, labels & continue text -- */
+[id] + label > div > [class*="pcqu-"] ~ label,
+[id] + label > div > [class*="pcqu-"] ~ [type="radio"] {
+    pointer-events: auto;
+}
+[id] + label, [id] + label > *,
+[id] + label > div > [class*="pcqu-"] ~ label:last-of-type {
+    pointer-events: none;
+}
+[id] + label > div > .continue,
+[id] + label > div > .continue-multi {
+    pointer-events: auto;
+}
+
+/* -- Hide nested & checked checkboxes/sections -- */
+[id] + label > div > [id] + label > div,
+[id]:checked + label > div > * {
+    display: none !important;
+}
+/* -- Display nested checkbox/section after parent is checked -- */
+[id]:checked + label > div > [id] + label > div,
+[id]:checked + label > div > label.section:last-of-type {
+    display: initial !important;
+}
+
+/* -- Hide continue until option selected, 
+    but only when there's options to be selected -- */
+[type="radio"] ~ .continue,
+[type="radio"] ~ .continue-multi {
+    display: none;
+}
+[type="radio"]:checked ~ .continue {
+    display: inline-block;
+}
+
+
+/* =====================
+        CHOICE
+        RESULTS 
+===================== */
+
 /* -- Hide all name choices, initially -- */
-[id|="f"], [id|="f"] + label,
-[id|="m"], [id|="m"] + label,
-[id|="n"], [id|="n"] + label {
+[id*="f-"], [id*="f-"] + label,
+[id*="m-"], [id*="m-"] + label,
+[id*="n-"], [id*="n-"] + label {
     display: none;
 }
 
 /* -- Displays name choices depending on chosen gender -- */
-#female:checked ~ #pc-name + label > .pc-name > [id|="f"],
-#female:checked ~ #pc-name + label > .pc-name > [id|="f"] + label,
+#female:checked ~ #pc-name + label > .pc-name > [id*="f-"],
+#female:checked ~ #pc-name + label > .pc-name > [id*="f-"] + label,
 
-#male:checked ~ #pc-name + label > .pc-name > [id|="m"],
-#male:checked ~ #pc-name + label > .pc-name > [id|="m"] + label,
+#male:checked ~ #pc-name + label > .pc-name > [id*="m-"],
+#male:checked ~ #pc-name + label > .pc-name > [id*="m-"] + label,
 
-#nb:checked ~ #pc-name + label > .pc-name > [id|="n"],
-#nb:checked ~ #pc-name + label > .pc-name > [id|="n"] + label {
+#nb:checked ~ #pc-name + label > .pc-name > [id*="n-"],
+#nb:checked ~ #pc-name + label > .pc-name > [id*="n-"] + label {
     display: inline;
 }
 
 /* -- Hide all mentions of gender in text, initially -- */
-[class|="gen"] {
+[class*="gen-"] {
     display: none;
 }
 /* -- Display mentions of gender in text based on chosen gender -- */
@@ -29,7 +111,7 @@
 }
 
 /* -- Hide all names in text, initially -- */
-[class|="name"] {
+[class*="name-"] {
     display: none;
 }
 /* -- Display name in text based on chosen name -- */
@@ -46,72 +128,19 @@
 #n-3:checked ~ #poc + label .name-n3 {
     display: initial;
 }
-/* -- Fix for weird punctuation spacing in text after options list -- */
-.punct {
-    margin-left: -0.25em;
-}
 
-/* -- Don't display checkbox buttons -- */
-#start, #pc-name, #pc-gender, #poc,
-[type="checkbox"] {
+/* -- Show proceed message for a branch based on user choice -- */
+/* -- also affected by .continue-multi -- */
+#left:checked ~ .left,
+#right:checked ~ .right {
+    display: block;
+}
+/* -- Hide all fork path results, initially -- */
+[class*="fork-"] {
     display: none;
 }
-
-/* -- Disable pointer events, except for radio input, labels & continue text -- */
-[id] + label > div > [class|="pcqu"] ~ label,
-[id] + label > div > [class|="pcqu"] ~ [type="radio"] {
-    pointer-events: auto;
-}
-[id] + label, [id] + label > *,
-[id] + label > div > [class|="pcqu"] ~ label:last-of-type {
-    pointer-events: none;
-}
-[id] + label > div > .continue,
-[id] + label > div > .continue-multi {
-    pointer-events: auto;
-}
-
-/* -- Hide nested & checked checkboxes -- */
-[id] + label > div > [id] + label > div,
-[id]:checked + label > div > * {
-    display: none !important;
-}
-/* -- Display nested checkbox after parent is checked -- */
-[id]:checked + label > div > [id] + label > div,
-[id]:checked + label > div > label.section:last-of-type {
-    display: initial !important;
-}
-
-/* -- Hide continue until option selected, 
-    but only when there's options to be selected -- */
-.continue-multi {
-    display: inline-block;
-}
-[type="radio"] ~ .continue {
-    display: none;
-}
-[type="radio"]:checked ~ .continue {
-    display: inline-block;
-}
-
-[type="radio"] + .continue-multi {
-    display: inline;
-}
-
-/* -- line breaks after radio labels -- */
-[type="radio"] + label::after {
-    content:"\A";
-    white-space: pre;
-}
-
-
-[type="checkbox"] + .continue-multi > label.choice {
-    display: none !important;
-}
-[type="checkbox"]:checked + .continue-multi {
-    display: none;
-}
-[type="checkbox"]:checked + .continue-multi > label.choice,
-[type="checkbox"]:checked + .continue-multi > label.choice p {
-    display: initial !important;
+/* -- Display path results based on user choice -- */
+#left:checked ~ label .fork-left,
+#right:checked ~ label .fork-right {
+    display: block;
 }
