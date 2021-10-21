@@ -1,6 +1,29 @@
-[type="checkbox"]:indeterminate + label {
-    border: 1px solid red;
+.continue {
+    display: none;
 }
-#child + label {
-    color: red;
+#left:checked ~ .left,
+#right:checked ~ .right {
+    display: block;
+}
+
+#parent + label {
+    pointer-events: none;
+}
+#parent + label > [name="group"] + label,
+#parent + label > .continue {
+    pointer-events: auto;
+}
+[name="group"] {
+    display: none;
+}
+input[name="group"] + label {
+    display: inline;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+input[name="group"] + label:hover {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+.punct {
+    margin-left: -0.25em;
 }

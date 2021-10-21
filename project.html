@@ -23,7 +23,6 @@
             <main>
                 <section>
                     <h2>Welcome</h2>
-                    <p>beep</p>
                 </section>
 
                 <!-- 
@@ -43,14 +42,20 @@
                 <section id="project">
                     <input type="checkbox" id="parent">
                     <label for="parent">
-                        <p>Test</p>
+                        <span>There's a fork in the road. <br><br>Do you</span>
 
-                        <input type="checkbox" id="child">
-                        <label for="child">
-                            <p>Goal, to check both with one click</p>
-                        </label>
-                        
-                        <p>test??</p>
+                        <input type="radio" name="group" id="left">
+                        <label for="left">go left</label>
+
+                        <span class="punct">, or </span>
+
+                        <input type="radio" name="group" id="right">
+                        <label for="right">go right</label>
+
+                        <span class="punct">?</span>
+
+                        <p class="continue left">You proceed left...</p>
+                        <p class="continue right">You proceed right...</p>
                     </label>
                 </section>
             </main>
