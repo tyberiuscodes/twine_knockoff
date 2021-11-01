@@ -2,6 +2,6 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/tanderson/public_html/experiments/git_test/
-    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R /css $DEPLOYPATH
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp project.html $DEPLOYPATH
